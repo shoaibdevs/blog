@@ -35,8 +35,14 @@
                                     <td>{{data.title}}</td>
                                     <td>{{data.description}}</td>
                                     <td>
-                                        <a href="/edit/{{ data.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-                                        <a href="/delete/{{ data.id }}">Delete</a>  
+                                        <a href="/edit/{{ data.id }}">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-round">
+                                            <i class="material-icons">edit</i>
+                                        </button></a>
+                                         <a href="/delete/{{ data.id }}">
+                                        <button type="button" rel="tooltip" class="btn btn-danger btn-round">
+                                            <i class="material-icons">close</i>
+                                        </button></a>
                                     </td>
                                 </tr>
                                 {% endfor %}

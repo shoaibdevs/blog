@@ -1,11 +1,10 @@
 from django.urls import path
-from blog.views import data_views, show_views, edit_views, update_views, delete_views, panel_views,\
-signup_views, user_show, login_views, logout_views
+from blog.views import data_views, show_views, edit_views, update_views, delete_views, panel_views,signup_views, user_show, login_views, logout_views
 
 
 urlpatterns = [
 	
-	path('create/', data_views, name = 'data'),
+	path('student/', data_views, name = 'data'),
 	path('table/', show_views, name = 'table'),
 	path('edit/<int:id>/', edit_views, name = 'edit'),
 	path('update/<int:id>/', update_views, name = 'update'),

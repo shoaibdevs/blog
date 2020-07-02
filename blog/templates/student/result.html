@@ -1,0 +1,61 @@
+{% extends 'admin/adminbase.html'%}
+{% block content %}
+
+
+<form method="POST" class="post-form" action="/add/">  
+        {% csrf_token %}  
+    <div class="container"><br>
+
+	    <div class="form-group row">  
+	    	<label class="col-sm-1 col-form-label"></label>  
+    		<div class="col-sm-4">  
+    			<h3>Add Student Marks</h3>  
+    		</div>  
+ 		</div>  
+    	<div class="form-group row">  
+    		<label class="col-sm-2 col-form-label">Admission No. :</label>  
+    		<div class="col-sm-4">  
+      			{{ form.admission }}  
+    		</div>  
+  		</div>  
+	  	<div class="form-group row">  
+	    	<label class="col-sm-2 col-form-label">Name :</label>  
+	    	<div class="col-sm-4">  
+	      	{{ form.name }}  
+	    	</div>  
+ 		</div>
+ 		<div class="form-group row">  
+	    	<label class="col-sm-2 col-form-label">English :</label>  
+	    	<div class="col-sm-4">  
+	      	{{ form.english }}  
+	    	</div>  
+ 		</div>
+ 		<div class="form-group row">  
+	    	<label class="col-sm-2 col-form-label">Hindi :</label>  
+	    	<div class="col-sm-4">  
+	      	{{ form.hindi }}  
+	    	</div>  
+ 		</div>
+ 		<div class="form-group row">  
+	    	<label class="col-sm-2 col-form-label">Science :</label>  
+	    	<div class="col-sm-4">  
+	      	{{ form.science }}  
+	    	</div>  
+ 		</div>
+ 		<div class="form-group row">  
+	    	<label class="col-sm-2 col-form-label">Maths :</label>  
+	    	<div class="col-sm-4">  
+	      	{{ form.maths }}  
+	    	</div>  
+ 		</div>
+	    <div class="form-group row">  
+	    	<label class="col-sm-1 col-form-label"></label>  
+    		<div class="col-sm-4">  
+    			<button type="submit" class="btn btn-primary">Submit</button>  
+    		</div>  
+  		</div>  
+    </div>  
+    
+</form>
+
+{% endblock %}

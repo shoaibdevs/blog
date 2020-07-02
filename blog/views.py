@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect 
-from .models import GeeksModel 
-from .forms import GeeksForm 
+from django.shortcuts import render, redirect
+from .models import GeeksModel
+from .forms import GeeksForm
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login
@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import AuthUser
 from .forms import LoginForm
+
 
 # Create your views here.
 
@@ -39,14 +40,14 @@ def show_views(request):
 @login_required(login_url='/login/')
 def edit_views(request, id):
 
-    students = GeeksModel.objects.filter(id=id)
+    students = GeeksModel.objects.get(id=id)
 
     return render(request,'edit.html', {'students':students})
 
 @login_required(login_url='/login/')
 def update_views(request, id):
 
-    students = GeeksModel.objects.filter(id=id)
+    students = GeeksModel.objects.get(id=id)
     form = GeeksForm(request.POST or None, instance = students)
 
     if form.is_valid():
@@ -79,7 +80,7 @@ def signup_views(request):
 
          user = User.objects.create_user(username = username , first_name = first_name, last_name = last_name , email = email, password = password  )#, password2 = password2 ,  password2 = password2
          user.save()
-         return redirect('/')
+         return redirect('/user')
 
     else:
         return render(request, 'admin/signup.html',)
@@ -87,7 +88,7 @@ def signup_views(request):
 @login_required(login_url='/login/')
 def user_show(request):
     marks_data = AuthUser.objects.all()
-        
+
     return render(request, 'admin/user.html', {'marks_data' : marks_data})
 
 
@@ -116,5 +117,3 @@ def login_views(request):
 def logout_views(request):
     logout(request)
     return redirect('/login')
-
-

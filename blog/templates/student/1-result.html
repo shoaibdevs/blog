@@ -1,0 +1,84 @@
+{% extends 'admin/adminbase.html'%}
+{% block content %}
+
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h1 class="mt-4">Tables</h1>
+            
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/panel">Dashboard</a></li>
+                <li class="breadcrumb-item active">Tables</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    DataTable 
+                </div>
+     
+                <div class="card-body">
+                    <div class="table-responsive">
+                        
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+
+                                    <th>Admission No.</th>
+                                    <th>Name</th>
+                                    <th>Science</th>
+                                    <th>Maths</th>
+                                    <th>English</th>
+                                    <th>Hindi</th>
+
+                                </tr>
+                            </thea>
+                            <tbody>
+
+                                  {% for list in result %}  
+                                <tr>
+
+                                    <td>{{ list.admission }}</td>
+                                    <td>{{ list.name }}</td>
+                                    <td>{{ list.science }}</td>
+                                    <td>{{ list.maths }}</td>
+                                    <td>{{ list.english }}</td>
+                                    <td>{{ list.hindi }}</td>
+                                    <td class="td-actions text-right">
+                                        <a href="/edit/{{ data.id }}">
+                                        <button type="button" rel="tooltip" class="btn btn-success">
+                                            <i class="material-icons">edit</i>
+                                        </button></a>
+                                        <a href="/delete/{{ data.id }}">
+                                        <button type="button" rel="tooltip" class="btn btn-danger">
+                                            <i class="material-icons">close</i>
+                                        </button></a>
+                                    </td>
+                                   
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <center><a href="/create" class="btn btn-primary">Add New Student</a></center>  
+            </center>
+        </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+{% endblock%}
